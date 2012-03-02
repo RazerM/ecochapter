@@ -1,0 +1,173 @@
+\ProvidesPackage{ecochapter}
+\usepackage{ifthen}
+\usepackage{xparse}[2010/10/13]
+
+%echapter v1.0.0.1
+%TODO: Optional ! token to prevent adding to ToC?
+
+\newcounter{eappendix}
+\setcounter{eappendix}{0}
+\renewcommand{\theeappendix}{\Alph{eappendix}}
+
+%----------------------------------------------------------
+%	\echapter*+[ToC-Name]{Title}
+%	*			optional;	Use to prevent numbered chapter
+%	+			optional;	Do not start new page
+%	[ToC-Name]	optional;	Name to use in ToC
+%	{Title}		mandatory;	Chapter title
+%----------------------------------------------------------
+\DeclareDocumentCommand{\echapter} {s t+ o m}{
+	\IfBooleanTF {#2} {
+		\vskip 5ex
+	}{
+		\newpage
+	}
+	\IfBooleanTF{#1}{
+		{\noindent\Huge\bfseries #4}\\[3mm]
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{chapter}{#4}
+		}{
+			\addcontentsline{toc}{chapter}{#3}
+		}
+	}{
+		\refstepcounter{chapter}
+		{\noindent\Huge\bfseries \thechapter~#4}\\[3mm]
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{chapter}{\thechapter~#4}
+		}{
+			\addcontentsline{toc}{chapter}{\thechapter~#3}
+		}
+	}
+	\@afterindentfalse%
+	\@afterheading%
+	
+}
+
+%----------------------------------------------------------
+%	\esection*+[ToC-Name]{Title}
+%	*			optional;	Use to prevent numbered chapter
+%	+			optional;	No vertical space above section
+%	[ToC-Name]	optional;	Name to use in ToC
+%	{Title}		mandatory;	Section title
+%----------------------------------------------------------
+\DeclareDocumentCommand{\esection} {s t+ o m}{
+	\IfBooleanTF {#2} {
+		\vskip 0.8ex
+	}{
+		\vskip 3.6ex
+	}
+	\IfBooleanTF{#1}{
+		{\noindent\Large\bfseries #4}\\
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{section}{#4}
+		}{
+			\addcontentsline{toc}{section}{#3}
+		}
+	}{
+		\refstepcounter{section}
+		{\noindent\Large\bfseries \thesection~#4}\\
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{section}{\thesection~#4}
+		}{
+			\addcontentsline{toc}{section}{\thesection~#3}
+		}
+	}
+	\vspace{-1mm}
+	\@afterindentfalse%
+	\@afterheading%
+	
+}
+
+%-------------------------------------------------------------
+%	\esubsection*+[ToC-Name]{Title}
+%	*			optional;	Use to prevent numbered chapter
+%	+			optional;	No vertical space above subsection
+%	[ToC-Name]	optional;	Name to use in ToC
+%	{Title}		mandatory;	Subsection title
+%-------------------------------------------------------------
+\DeclareDocumentCommand{\esubsection} {s t+ o m}{
+	\IfBooleanTF {#2} {
+		\vskip 0.5ex
+	}{
+		\vskip 3ex
+	}
+	\IfBooleanTF{#1}{
+		{\noindent\large\bfseries #4}\\
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{subsection}{#4}
+		}{
+			\addcontentsline{toc}{subsection}{#3}
+		}
+	}{
+		\refstepcounter{subsection}
+		{\noindent\large\bfseries \thesubsection~#4}\\
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{subsection}{\thesubsection~#4}
+		}{
+			\addcontentsline{toc}{subsection}{\thesubsection~#3}
+		}
+	}
+	\vspace{-2mm}
+	\@afterindentfalse%
+	\@afterheading%
+	
+}
+
+%----------------------------------------------------------------
+%	\esubsubsection*+[ToC-Name]{Title}
+%	*			optional;	Use to prevent numbered chapter
+%	+			optional;	No vertical space above subsubsection
+%	[ToC-Name]	optional;	Name to use in ToC
+%	{Title}		mandatory;	Subsubsection title
+%----------------------------------------------------------------
+\DeclareDocumentCommand{\esubsubsection} {s t+ o m}{
+	\IfBooleanTF {#2} {
+		\vskip 1ex
+	}{
+		\vskip 2.3ex
+	}
+	\IfBooleanTF{#1}{
+		{\noindent\normalsize\bfseries #4}\\
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{subsubsection}{#4}
+		}{
+			\addcontentsline{toc}{subsubsection}{#3}
+		}
+	}{
+		\refstepcounter{subsubsection}
+		{\noindent\normalsize\bfseries \thesubsubsection~#4}\\
+		\IfNoValueTF {#3}{
+			\addcontentsline{toc}{subsubsection}{\thesubsubsection~#4}
+		}{
+			\addcontentsline{toc}{subsubsection}{\thesubsubsection~#3}
+		}
+	}
+	\vspace{-2mm}
+	\@afterindentfalse%
+	\@afterheading%
+	
+}
+
+%-----------------------------------------------------------
+%	\eappendix+[ToC-Name]{Title}
+%	+			optional;	Do not start new page
+%	[ToC-Name]	optional;	Name to use in ToC
+%	{Title}		mandatory;	Appendix title
+%-----------------------------------------------------------
+\DeclareDocumentCommand{\eappendix} {t+ o m}{
+	\IfBooleanTF {#1} {
+		\vskip 5ex
+	}{
+		\newpage
+	}
+	\refstepcounter{eappendix}
+	{\noindent\Huge\bfseries Appendix~\theeappendix\ --- #3}\\[3mm]
+	\IfNoValueTF {#2}{
+		\addcontentsline{toc}{chapter}{Appendix~\theeappendix\ --- #3}
+	}{
+		\addcontentsline{toc}{chapter}{Appendix~\theeappendix\ --- #2}
+	}
+	\@afterindentfalse%
+	\@afterheading%
+	
+}

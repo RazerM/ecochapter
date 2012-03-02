@@ -1,0 +1,66 @@
+\documentclass[12pt,a4paper,oneside,notitlepage]{report}
+\usepackage[a4paper]{geometry}
+
+% -------------------------------------------------
+% None of these packages are required by ecochapter
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} %font
+% -------------------------------------------------
+
+\usepackage{ecochapter}
+
+\begin{document}
+
+\echapter*{Comparison Notes}
+\verb|ecochapter| was created mainly as a better way of sectioning a formal report, without wasting space or labelling such as "Chapter 1 \textbackslash <Title>" where "1 <Title>" is more appropriate.
+
+I have included a page of the headings as displayed using the \verb|ecochapter| package, followed by the same examples using the standard \LaTeX commands.
+
+The [Compare] hyperlinks reference the heading of the opposite type (\verb|ecochapter| links to \LaTeX and vice versa).
+
+\emph{As a side effect you will see that }\verb|ecochapter|\emph{ headings work better with }\verb|hyperref|\emph{ than their \LaTeX counterparts.}
+
+\newpage
+\chapter{chapter --- new page \hyperref[echapter]{Compare}}\label{chapter}
+Text after chapter. {\color{blue} Note that the original \verb|\chapter| forces a new page. There is also lots of space above the heading.
+
+I have numbered the first chapters to show the difference in styling. The method here undoubtedly looks good, but is not always appropriate.}
+
+\chapter*{chapter --- after text \hyperref[echapterplus]{Compare}}\label{chapterplus}
+\section*{section --- after chapter \hyperref[esectionplus]{Compare}}\label{sectionplus}
+Text after section. {\color{blue} \verb|\chapter| immediately followed by \verb|\section| wastes vertical space between headings.}
+
+\section*{section --- after text \hyperref[esection]{Compare}}\label{section}
+\subsection*{subsection --- after section \hyperref[esubplus]{Compare}}\label{subplus}
+Text after subsection.
+
+\subsection*{subsection --- after text \hyperref[esubs]{Compare}}\label{sub}
+\subsubsection*{subsubsection --- after subsection \hyperref[esubsubplus]{Compare}}\label{subsubplus}
+Text after subsubsection
+
+\subsubsection*{subsubsection --- after text \hyperref[esubsub]{Compare}}\label{subsub}
+
+\echapter{echapter --- new page \hyperref[chapter]{Compare}}\label{echapter}
+Text after chapter.
+
+\echapter*+{echapter --- after text \hyperref[chapterplus]{Compare}}\label{echapterplus}
+\esection*+{esection --- after chapter \hyperref[sectionplus]{Compare}}\label{esectionplus}
+Text after section. {\color{blue} Using \verb|\esection+| immediately after \verb|\echapter| collapses space between headings. The "\verb|+|" modifier does the same for all commands. The exception is that \verb|\echapter+| prevents a new page for the chapter.}
+
+\esection*{esection --- after text \hyperref[section]{Compare}}\label{esection}
+\esubsection*+{esubsection --- after section \hyperref[subplus]{Compare}}\label{esubplus}
+Text after subsection.
+
+\esubsection*{esubsection --- after text \hyperref[sub]{Compare}}\label{esub}
+\esubsubsection*+{esubsubsection --- after subsection \hyperref[subsubplus]{Compare}}\label{esubsubplus}
+Text after subsubsection
+
+\esubsubsection*{esubsubsection --- after text \hyperref[subsub]{Compare}}\label{esubsub}
+
+\eappendix{Extra stuff}
+\eappendix+{Extra stuff samepage}
+\end{document}
