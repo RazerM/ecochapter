@@ -9,7 +9,7 @@ Simply download ecochapter.sty to same directory as your `*.tex` file and includ
 ```
 
 The commands are as follows:
-```latex
+```
 \echapter*+[ToC Title]{Title}
 %	*		optional;	Prevent numbering
 %	+		optional;	Do not put chapter heading on new page.
@@ -32,7 +32,7 @@ The commands are as follows:
 
 #Simple usage
 The only parameter you need for each command is the title,
-```latex
+```
 \echapter{Title} % Display a numbered chapter on a fresh page
 \esection{Title} % Display numbered section with default spacing
 ```
@@ -42,7 +42,7 @@ That seems simple enough, right?
 #Other parameters
 ##I don't need numbers
 The asterisk simply produces a heading without numbering,
-```latex
+```
 \echapter*{Title} % Display non-numbered chapter on a fresh page
 \esection*{Title} % Display non-numbered section with default spacing
 ```
@@ -59,14 +59,14 @@ The plus character is key to saving space with `ecochapter`. It has two possible
 
 ###Example 1
 This is the wrong way to format your document. It results in a large gap between **Chapter** and **Section**.
-```latex
+```
 \echapter{Chapter}
 \esection{Section} 
 ```
 
 ###Example 2
 This is the correct usage of `+`; to **format successive headings correctly**.
-```latex
+```
 \echapter{Chapter}
 \esection+{Section} 
 ```
@@ -79,7 +79,7 @@ Usage of `+` is the same for `\esection` followed by `\esubsection` and so on.
 `\appendix` has no parameters and simply resets the numbering used by `\chapter`, `\section` and so on so that all headings following the `\appendix` command are numbered differently. This numbering change also affects `ecochapter`!
 
 An example:
-```latex
+```
 \chapter{Introduction} % Outputs "Chapter 1 \ Introduction"
 ...
 \chapter{Theory} % Outputs "Chapter 2 \ Theory"
@@ -90,7 +90,7 @@ An example:
 ```
 
 Same example using `ecochapter`:
-```latex
+```
 \echapter{Introduction} % Outputs "1 Introduction"
 ...
 \echapter{Theory} % Outputs "2 Theory"
