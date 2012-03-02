@@ -10,11 +10,11 @@
 \renewcommand{\theeappendix}{\Alph{eappendix}}
 
 %----------------------------------------------------------
-%	\echapter*+[ToC-Name]{Title}
-%	*			optional;	Use to prevent numbered chapter
-%	+			optional;	Do not start new page
-%	[ToC-Name]	optional;	Name to use in ToC
-%	{Title}		mandatory;	Chapter title
+%	\echapter*+[ToC Title]{Title}
+%	*			optional;	Prevent numbering.
+%	+			optional;	Do not put chapter heading on new page.
+%	[ToC Title]	optional;	Name to use in Table of Contents.
+%	{Title}		mandatory;	Chapter title.
 %----------------------------------------------------------
 \DeclareDocumentCommand{\echapter} {s t+ o m}{
 	\IfBooleanTF {#2} {
@@ -44,11 +44,11 @@
 }
 
 %----------------------------------------------------------
-%	\esection*+[ToC-Name]{Title}
-%	*			optional;	Use to prevent numbered chapter
-%	+			optional;	No vertical space above section
-%	[ToC-Name]	optional;	Name to use in ToC
-%	{Title}		mandatory;	Section title
+%	\esection*+[ToC Title]{Title}
+%	*			optional;	Prevent numbering.
+%	+			optional;	No vertical space above section.
+%	[ToC Title]	optional;	Name to use in Table of Contents.
+%	{Title}		mandatory;	Section title.
 %----------------------------------------------------------
 \DeclareDocumentCommand{\esection} {s t+ o m}{
 	\IfBooleanTF {#2} {
@@ -79,11 +79,11 @@
 }
 
 %-------------------------------------------------------------
-%	\esubsection*+[ToC-Name]{Title}
-%	*			optional;	Use to prevent numbered chapter
-%	+			optional;	No vertical space above subsection
-%	[ToC-Name]	optional;	Name to use in ToC
-%	{Title}		mandatory;	Subsection title
+%	\esubsection*+[ToC Title]{Title}
+%	*			optional;	Prevent numbering.
+%	+			optional;	No vertical space above subsection.
+%	[ToC Title]	optional;	Name to use in Table of Contents.
+%	{Title}		mandatory;	Subsection title.
 %-------------------------------------------------------------
 \DeclareDocumentCommand{\esubsection} {s t+ o m}{
 	\IfBooleanTF {#2} {
@@ -114,11 +114,11 @@
 }
 
 %----------------------------------------------------------------
-%	\esubsubsection*+[ToC-Name]{Title}
-%	*			optional;	Use to prevent numbered chapter
-%	+			optional;	No vertical space above subsubsection
-%	[ToC-Name]	optional;	Name to use in ToC
-%	{Title}		mandatory;	Subsubsection title
+%	\esubsubsection*+[ToC Title]{Title}
+%	*			optional;	Prevent numbering.
+%	+			optional;	No vertical space above subsubsection.
+%	[ToC Title]	optional;	Name to use in Table of Contents.
+%	{Title}		mandatory;	Subsubsection title.
 %----------------------------------------------------------------
 \DeclareDocumentCommand{\esubsubsection} {s t+ o m}{
 	\IfBooleanTF {#2} {
@@ -149,10 +149,10 @@
 }
 
 %-----------------------------------------------------------
-%	\eappendix+[ToC-Name]{Title}
-%	+			optional;	Do not start new page
-%	[ToC-Name]	optional;	Name to use in ToC
-%	{Title}		mandatory;	Appendix title
+%	\eappendix+[ToC Title]{Title}
+%	+			optional;	Do not start new page.
+%	[ToC Title]	optional;	Name to use in Table of Contents.
+%	{Title}		mandatory;	Appendix title.
 %-----------------------------------------------------------
 \DeclareDocumentCommand{\eappendix} {t+ o m}{
 	\IfBooleanTF {#1} {
