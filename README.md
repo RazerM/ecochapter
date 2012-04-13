@@ -13,21 +13,21 @@ The commands are as follows:
 
 ```latex
 \echapter*+[ToC Title]{Title}
-%	*		optional;	Prevent numbering
-%	+		optional;	Do not put chapter heading on new page.
+%	*			optional;	Prevent numbering
+%	+			optional;	Do not put chapter heading on new page.
 %	[ToC Title]	optional;	Name to use in Table of Contents.
 %	{Title}		mandatory;	Chapter title.
 
 \esection*+[ToC Title]{Title},
 \esubsection*+[ToC Title]{Title},
 \esubsubsection*+[ToC Title]{Title},
-%	*		optional;	Prevent numbering
-%	+		optional;	No vertical space above section
+%	*			optional;	Prevent numbering
+%	+			optional;	No vertical space above section
 %	[ToC Title]	optional;	Name to use in ToC
 %	{Title}		mandatory;	Title
 
 \eappendix+[ToC Title]{Title}
-%	+		optional;	Do not start new page.
+%	+			optional;	Do not start new page.
 %	[ToC Title]	optional;	Name to use in Table of Contents.
 %	{Title}		mandatory;	Appendix title.
 ```
